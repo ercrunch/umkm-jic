@@ -15,7 +15,7 @@
 </head>
 <body class="selection:bg-stone-500 selection:text-white" style="background-color: #E1DDD9;">
     <!-- Header -->
-    <header class="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4">
+    <header class="flex flex-wrap sm:justify-start sm:flex-nowrap w-full text-sm py-4">
     @if (Route::has('login'))
         <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-start" aria-label="Global">
         @auth
@@ -53,15 +53,16 @@
     
     <!-- Slider -->
     <div data-hs-carousel='{"loadingClasses": "opacity-0","isAutoPlay": true}' class="relative">
-        <div class="hs-carousel relative overflow-hidden w-full" style="min-height: 85vh;">
+        <div class="hs-carousel relative overflow-hidden w-full" style="min-height: 88vh;">
             <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
                 <div class="hs-carousel-slide relative">
                     <img class="w-full h-full object-cover drop shadow-lg brightness-50" src="assets/images/01C.png" alt="First Slide">
                     <div class="absolute inset-0 flex flex-col justify-center items-center">
-                        <p class="text-2xl text-gray-100 transition duration-700 mb-4 text-center">Feel The Authentic Comfort</p>
+                    <p class="text-2xl text-gray-100 transition duration-700 text-center">Welcome To Our Site<br>And</p>
+                        <p class="sm:text-5xl text-2xl text-gray-100 transition duration-700 mb-4 text-center"><strong><em>Feel The Authentic Comfort</strong></em></p>
                         <!-- Button ke Halaman Katalog -->
                         <div class="flex items-center justify-center">
-                            <a class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none " href="/catalog-page">
+                            <a class="py-4 px-5 inline-flex items-center gap-x-3 text-m font-semibold rounded-full border border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none " href="/catalog-page">
                                 See Our Product
                             </a>
                         </div>
@@ -70,13 +71,13 @@
                 <div class="hs-carousel-slide relative">
                     <img class="w-full h-full object-cover drop shadow-lg brightness-50" src="assets/images/02C.jpg" alt="First Slide">
                     <div class="absolute inset-0 flex flex-col justify-center items-center">
-                        <p class="text-2xl text-gray-100 transition duration-700 mb-4 text-center">Find the real comfort with <br><b>just.in.case</b></p>
+                        <p class="text-3xl text-gray-100 transition duration-700 mb-4 text-center">Find the real comfort with <br><strong><em>just.in.case</strong><em></p>
                     </div>
                 </div>
                 <div class="hs-carousel-slide relative">
                     <img class="w-full h-full object-cover drop shadow-lg brightness-50" src="assets/images/03C.jpg" alt="First Slide">
                     <div class="absolute inset-0 flex flex-col justify-center items-center">
-                        <p class="text-2xl text-gray-100 transition duration-700 mb-4 text-center">Affordable Price <br>Elegant Appearance</p>
+                        <p class="text-3xl text-gray-100 transition duration-700 mb-4 text-center">Affordable Price <br>Elegant Appearance</p>
                     </div>
                 </div>
             </div>
@@ -111,7 +112,7 @@
         <!-- About Us -->
         <div class="container px-10 mx-auto p-0">
             <div class="border rounded-lg shadow-lg p-5 text-center whitespace-normal">
-                <h2 class="mb-2 text-black text-l font-bold sm:text-xl sm:mb-3"><u>ABOUT US</u></h2>
+                <h2 class="mb-2 text-black text-l font-bold sm:text-2xl sm:mb-3"><u>ABOUT US</u></h2>
                 <p class=" text-black sm:text-l">just.in.case (JIC) merupakan salah satu brand lokal yang hadir dari inspirasi anak muda untuk meningkatkan kualitas fashion  dengan harga yang<br> terjangkau namun tetap membuat penggunanya tampil casual dan elegan. JIC sangat mengutamakan kenyamanan  bagi para penggunanya yang disesuaikan dengan slogan kami, yaitu.
                 <br>
                 <br><strong>“FEEL THE AUTHENTIC COMFORT”</br></strong>
@@ -132,7 +133,7 @@
 
         <!-- Button ke Halaman Katalog -->
         <div class="flex items-center justify-center mt-2 mb-5">
-            <a href="/catalog-page" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none ">
+            <a href="/catalog-page" class="py-4 px-4 inline-flex items-center gap-x-2 text-m font-semibold rounded-full border border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none ">
                 See Our Product
             </a>
         </div>
