@@ -53,7 +53,7 @@
     
     <!-- Slider -->
     <div data-hs-carousel='{"loadingClasses": "opacity-0","isAutoPlay": true}' class="relative">
-        <div class="hs-carousel relative overflow-hidden w-full" style="min-height: 88vh;">
+        <div class="hs-carousel relative overflow-hidden w-full" style="min-height: 90vh;">
             <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
                 <div class="hs-carousel-slide relative">
                     <img class="w-full h-full object-cover drop shadow-lg brightness-50" src="assets/images/01C.png" alt="First Slide">
@@ -71,7 +71,7 @@
                 <div class="hs-carousel-slide relative">
                     <img class="w-full h-full object-cover drop shadow-lg brightness-50" src="assets/images/02C.jpg" alt="First Slide">
                     <div class="absolute inset-0 flex flex-col justify-center items-center">
-                        <p class="text-3xl text-gray-100 transition duration-700 mb-4 text-center">Find the real comfort with <br><strong><em>just.in.case</strong><em></p>
+                        <p class="text-3xl text-gray-100 transition duration-700 mb-4 text-center">Find the real comfort with <br>just.in.case</p>
                     </div>
                 </div>
                 <div class="hs-carousel-slide relative">
