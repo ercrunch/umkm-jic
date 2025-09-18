@@ -1,9 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Content of Catalog') }}
-        </h2>
+        <div class="flex justify-between items-center w-full">
+            <h2 class="font-semibold text-xl text-black leading-tight">
+                {{ __('Content of Catalog') }}
+            </h2>
+            <!-- Button Tambah baru - -->
+            <a class="inline-block px-3 py-2 bg-white rounded-lg text-sm font-semibold sm:text-base text-black hover:text-stone-500 " href="/admin/add-new-catalog">
+                + Add 
+            </a>
+        </div>
     </x-slot>
+
 
     <div class="py-12">
 
@@ -40,13 +47,6 @@
 
                         @endforeach
                         </table>
-                    </div>
-
-                    <!-- Button Tambah baru - -->
-                    <div class="flex items-center justify-end mt-2">
-                        <a class="inline-block px-3 py-2 bg-orange-900 rounded-lg text-sm sm:text-base text-white hover:text-stone-500 " href="/add-new-catalog">
-                            + Add 
-                        </a>
                     </div>
                 </div>
             </div>

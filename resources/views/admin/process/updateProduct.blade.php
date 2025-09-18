@@ -22,7 +22,7 @@
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-8 px-8 py-4 bg-orange-900 shadow-md overflow-hidden rounded-lg">
+            <div class="w-full sm:max-w-md mt-8 px-8 py-4 shadow-md overflow-hidden rounded-lg" style="background-color: rgba(255, 255, 255, 0.62);">
                 <form method="POST" action="{{ route('updateProduct.updated',['id' => $data->id]) }}" enctype="multipart/form-data">
                     @csrf
 
@@ -31,6 +31,20 @@
                         <x-input-label for="name" :value="__('Name')" />
                         <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $data->name }}" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                    </div>
+
+                    <!-- Product Category -->
+                    <div class="mt-4">
+                        <x-input-label for="category" :value="__('Category')" />
+                        <select id="category" name="category" class="block mt-1 w-full" required>
+                            <option value="" disabled selected>Select Category</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->category }}" {{ $data->category == $category->category ? 'selected' : '' }}>
+                                    {{ $category->category }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <x-input-error :messages="$errors->get('category')" class="mt-2" />
                     </div>
 
                     <!-- Product Price -->
@@ -56,7 +70,7 @@
 
                     <div class="flex items-center justify-end mt-4">
                         <!-- Button Back ke Tabel Content Product -->
-                        <a class="underline text-sm text-gray-300 hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-orange-950" href="content-product">
+                        <a class="underline text-blue-600 hover:underline" href="/admin/content-product">
                             Back
                         </a>
 

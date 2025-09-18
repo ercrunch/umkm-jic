@@ -22,14 +22,14 @@
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-8 px-8 py-4 bg-orange-900 shadow-md overflow-hidden rounded-lg">
+            <div class="w-full sm:max-w-md mt-8 px-8 py-4 shadow-md overflow-hidden rounded-lg" style="background-color: rgba(255, 255, 255, 0.62);">
                 <form method="POST" action="{{ route('detailProduct.store') }}" enctype="multipart/form-data">
                     @csrf
 
                     <!-- Product Name -->
                     <div class="mt-4">
                         <x-input-label for="product_id" :value="__('Product')" />
-                        <select id="product_id" name="product_id" class="block mt-1 w-full rounded-md shadow-sm focus:border-rose-500 focus:ring focus:ring-rose-500 focus:ring-opacity-50">
+                        <select id="product_id" name="product_id" class="block mt-1 w-full rounded-md shadow-sm focus:ring-opacity-50">
                             @foreach($products as $product)
                                 <option value="{{ $product->id }}">{{ $product->name }}</option>
                             @endforeach
@@ -81,7 +81,7 @@
 
                     <div class="flex items-center justify-end mt-4">
                         <!-- Button Back ke Tabel Content Detail Product -->
-                        <a class="underline text-sm text-gray-300 hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-orange-950" href="content-detail-product">
+                        <a class="underline text-blue-600 hover:underline" href="/admin/detail-product">
                             Back
                         </a>
 

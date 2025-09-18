@@ -22,7 +22,7 @@
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-8 px-8 py-4 bg-orange-900 shadow-md overflow-hidden rounded-lg">
+            <div class="w-full sm:max-w-md mt-8 px-8 py-4 shadow-md overflow-hidden rounded-lg" style="background-color: rgba(255, 255, 255, 0.62);">
                 <form method="POST" action="{{ route('contentProduct.store') }}" enctype="multipart/form-data">
                     @csrf
 
@@ -32,6 +32,21 @@
                         <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
+
+                    <!-- Product Category -->
+                    <div class="mt-4">
+                        <x-input-label for="category" :value="__('Category')" />
+                        <select id="category" class="block mt-1 w-full" name="category" required>
+                            <option value="short wallet" {{ old('category') == 'short wallet' ? 'selected' : '' }}>Short Wallet</option>
+                            <option value="long wallet" {{ old('category') == 'long wallet' ? 'selected' : '' }}>Long Wallet</option>
+                            <option value="card holder" {{ old('category') == 'card holder' ? 'selected' : '' }}>Card Holder</option>
+                            <option value="sling bag" {{ old('category') == 'sling bag' ? 'selected' : '' }}>Sling Bag</option>
+                            <option value="hand bag" {{ old('category') == 'hand bag' ? 'selected' : '' }}>Hand Bag</option>
+                            <option value="tote bag" {{ old('category') == 'tote bag' ? 'selected' : '' }}>Tote Bag</option>
+                        </select>
+                        <x-input-error :messages="$errors->get('category')" class="mt-2" />
+                    </div>
+
 
                     <!-- Product Price -->
                     <div class="mt-4">
@@ -56,7 +71,7 @@
 
                     <div class="flex items-center justify-end mt-4">
                         <!-- Button Back ke Tabel Content Product -->
-                        <a class="underline text-sm text-gray-300 hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-orange-950" href="content-product">
+                        <a class="underline text-blue-600 hover:underline" href="/admin/content-product">
                             Back
                         </a>
 

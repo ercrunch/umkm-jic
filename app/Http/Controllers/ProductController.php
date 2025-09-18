@@ -25,8 +25,9 @@ class ProductController extends Controller
     public function detail(Request $request,$id){
         $products = Product::find($id);
         $details = Detail::find($id);
+        $product = Product::with('colors')->findOrFail($id);
 
-        return view('detail', compact('products', 'details'));
+        return view('detail', compact('products', 'details', 'product'));
     }
     // public function detail($id) {
     //     $products = Product::find($id);
@@ -44,49 +45,101 @@ class ProductController extends Controller
         ]);
     }
 
+    public function showCatalog(Request $request)
+    {
+        // Ambil semua kategori unik dari kolom 'category' di tabel 'products'
+        $categories = Product::select('category')->distinct()->get();
+
+        // Ambil kategori dari query string
+        $category = $request->input('category');
+
+        // Jika kategori "all" dipilih, tampilkan semua produk
+        if ($category == 'all') {
+            $products = Product::all();
+        } else {
+            // Jika kategori lain dipilih, tampilkan produk berdasarkan kategori
+            $products = $category ? Product::where('category', $category)->get() : Product::all();
+        }
+
+        // Kirim data ke view
+        return view('catalog', compact('products', 'categories'));
+    }
+
+
+
     // Menyimpan gambar
     public function store(Request $request) {
-    $data = $request->all();
-
-    if ($request->hasFile('image')) {
-        $data['image'] = $request->file('image')->store('product', 'public');
-    } else {
-        $data['image'] = ''; 
-    }
-
-    // Hapus kunci 'updated_at' dari array 
-    unset($data['updated_at']);
-
-    // create data
-    Product::create($data);
-
-    return redirect()->route('contentProduct.index');
+        // Ambil semua data dari form
+        $data = $request->all();
     
-    }
-
-    public function update(Request $request,$id){
-        $data = Product::find($id);
-
-        return view('admin.process.updateProduct', compact('data'));
-    }
-
-    public function updated(Request $request,$id){
-        $data = $request->except('_token');
-
+        // Menangani file gambar yang di-upload
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('product', 'public');
         } else {
-            $data['image'] = ''; 
+            $data['image'] = ''; // Jika tidak ada gambar, kosongkan nilai image
         }
     
-        // Hapus kunci 'updated_at' dari array 
+        // Menambahkan kategori ke data produk
+        $data['category'] = $request->category;
+    
+        // Hapus 'updated_at' jika ada
         unset($data['updated_at']);
     
-        // update data
-        Product::whereId($id)->update($data);
+        // Menyimpan produk baru
+        Product::create($data);
     
+        // Redirect ke halaman produk
         return redirect()->route('contentProduct.index');
-        
+    }
+    
+
+    public function update(Request $request, $id) {
+        // Ambil data produk berdasarkan id
+        $data = Product::find($id);
+
+        // Jika produk tidak ditemukan, redirect kembali dengan pesan error
+        if (!$data) {
+            return redirect()->route('contentProduct.index')->withErrors('Product not found.');
+        }
+
+        // Ambil semua kategori yang tersedia dari kolom 'category' dalam tabel 'products'
+        $categories = Product::select('category')->distinct()->get();
+
+        // Tampilkan halaman update produk dengan data produk dan kategori
+        return view('admin.process.updateProduct', compact('data', 'categories'));
+    }
+    
+
+    public function updated(Request $request, $id) {
+        // Mencari produk berdasarkan id
+        $data = Product::find($id);
+
+        // Jika produk tidak ditemukan, redirect kembali
+        if (!$data) {
+            return redirect()->route('contentProduct.index')->withErrors('Product not found.');
+        }
+
+        // Ambil semua data dari form, kecuali token
+        $updatedData = $request->except('_token');
+
+        // Menangani file gambar yang di-upload
+        if ($request->hasFile('image')) {
+            $updatedData['image'] = $request->file('image')->store('product', 'public');
+        } else {
+            $updatedData['image'] = $data->image; // Jika tidak ada gambar baru, gunakan gambar lama
+        }
+
+        // Menambahkan kategori
+        $updatedData['category'] = $request->category;
+
+        // Hapus 'updated_at' jika ada
+        unset($updatedData['updated_at']);
+
+        // Perbarui data produk
+        $data->update($updatedData);
+
+        // Redirect ke halaman produk
+        return redirect()->route('contentProduct.index');
     }
 
     public function delete(Request $request,$id){

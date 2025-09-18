@@ -22,7 +22,7 @@
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-8 px-8 py-4 bg-orange-900 shadow-md overflow-hidden rounded-lg">
+            <div class="w-full sm:max-w-md mt-8 px-8 py-4 shadow-md overflow-hidden rounded-lg" style="background-color: rgba(255, 255, 255, 0.62);">
                 <form method="POST" action="{{ route('updateDetail.updated',['id' => $data->id]) }}" enctype="multipart/form-data">
                     @csrf
 
@@ -81,7 +81,7 @@
 
                     <div class="flex items-center justify-end mt-4">
                         <!-- Button Back ke Tabel Detail Product -->
-                        <a class="underline text-sm text-gray-300 hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-orange-950" href="content-product">
+                        <a class="underline text-blue-600 hover:underline" href="/admin/detail-product">
                             Back
                         </a>
 

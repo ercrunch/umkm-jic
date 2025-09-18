@@ -32,20 +32,42 @@
             </label>
         </div> -->
 
-        <div class="flex items-center justify-end mt-4">
+        <!-- <div class="flex items-center justify-end mt-4"> -->
             <!-- @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-400 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
             @endif -->
 
-            <a href="/" class="underline text-sm text-gray-300 hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-orange-950">
+            <!-- <a href="/" class="underline text-sm text-black hover:text-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black">
                 Back
+            </a>
+            <a href="register" class="btn text-sm text-black hover:text-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black">
+                register
             </a>
 
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}
             </x-primary-button>
+        </div> -->
+
+        <div class="flex flex-col items-center justify-end mt-4">
+            <!-- Login Button -->
+            <x-primary-button class="w-full py-3 text-lgflex justify-center items-center">
+                {{ __('Sign In') }}
+            </x-primary-button>
+
+            <!-- Links Below the Login Button -->
+            <div class="mt-4 text-sm text-black text-center">
+                Doesn't have an account yet ? 
+                <a href="register" class="text-blue-600 hover:underline">
+                    Sign Up
+                </a>
+                or
+                <a href="/" class="text-blue-600 hover:underline">
+                    Back
+                </a>
+            </div>
         </div>
     </form>
 </x-guest-layout>

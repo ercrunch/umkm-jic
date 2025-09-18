@@ -15,6 +15,13 @@ class Product extends Model
         'name',
         'price',
         'image',
-        'description'
+        'description',
+        'category'
     ];
+
+    public function colors()
+    {
+        return $this->hasMany(Color::class);
+    }
+
 }
